@@ -4,7 +4,7 @@ from httplib2 import Http
 import os
 
 def send_message(message):
-  url = os.environ('CHAT_WEBHOOK_URL')
+  url = os.environ['CHAT_WEBHOOK_URL']
   app_message = {
     "text": message,
   }
