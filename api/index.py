@@ -4,7 +4,10 @@ from httplib2 import Http
 import os
 
 def send_message(message):
-  url = os.environ['CHAT_WEBHOOK_URL']
+  url = os.environ.get('CHAT_WEBHOOK_URL')
+  if not url:
+      print("Available environment variables:", list(os.environ.keys()))
+      raise ValueError(f"CHAT_WEBHOOK_URL is not set or is empty")
   app_message = {
     "text": message,
   }
@@ -46,7 +49,7 @@ def openai():
         component = data.get('component', {})
         component_update = data.get('component_update', {})
         message = (
-            f"*ChatGPT Status Update*"
+            f"*CHATGPT STATUS ⚠️*\n"
             f"*Component*: {component.get('name')}\n"
             f"*Status* changed from {component_update.get('old_status')} "
             f"to {component_update.get('new_status')}"
