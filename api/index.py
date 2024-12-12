@@ -49,7 +49,7 @@ def openai():
         component = data.get('component', {})
         component_update = data.get('component_update', {})
         message = (
-            f"*CHATGPT STATUS ⚠️*\n"
+            f"*OPENAI STATUS ⚠️*\n"
             f"*Component*: {component.get('name')}\n"
             f"*Status* changed from {component_update.get('old_status')} "
             f"to {component_update.get('new_status')}"
@@ -63,7 +63,7 @@ def openai():
         latest_update = updates[0] if updates else {}
         
         message = (
-            f"*CHATGPT STATUS ⚠️*\n"
+            f"*OPENAI STATUS ⚠️*\n"
             f"*Incident Update*: {incident.get('name')}\n"
             f"*Status*: {incident.get('status')}\n"
             f"*Impact*: {incident.get('impact')}\n"
