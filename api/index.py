@@ -51,8 +51,7 @@ def openai():
         message = (
             f"*OPENAI STATUS UPDATE ⚠️*\n"
             f"*Component*: {component.get('name')}\n"
-            f"*Status* changed from {component_update.get('old_status')} "
-            f"to {component_update.get('new_status')}"
+            f"*Status*: {component_update.get('old_status')} → {component_update.get('new_status')}"
         )
         send_message(message)
 
