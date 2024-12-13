@@ -76,5 +76,19 @@ def openai():
         "description": status_description
     }), 200
 
+@app.route('/robot-button-down', methods=['POST'])
+def robot_button_down():
+  json = request.get_json()
+  button = json.get('button')
+  send_message("😲 *A BUTTON HAS BEEN PRESSED*\nType: down\nButton: {}".format(button))
+  return "OK"
+
+@app.route('/robot-button-up', methods=['POST'])
+def robot_button_up():
+  json = request.get_json()
+  button = json.get('button')
+  send_message("😲 *A BUTTON HAS BEEN UNPRESSED*\nType: up\nButton: {}".format(button))
+  return "OK"
+
 if __name__ == '__main__':
   app.run(host='0.0.0.0', port=8080, debug=True)
